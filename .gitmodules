@@ -1,0 +1,6 @@
+[submodule "dockerfile/develop/modules/tmux/butterfly"]
+	path = dockerfile/develop/modules/tmux/butterfly
+	url = https://github.com/FabriceLuo/butterfly.git
+[submodule "dockerfile/develop/modules/base/butterfly"]
+	path = dockerfile/develop/modules/base/butterfly
+	url = https://github.com/FabriceLuo/butterfly.git
