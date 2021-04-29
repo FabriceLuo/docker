@@ -1,3 +1,0 @@
-[submodule "dockerfile/develop/modules/base/butterfly"]
-	path = dockerfile/develop/modules/base/butterfly
-	url = https://github.com/FabriceLuo/butterfly.git
