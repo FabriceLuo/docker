@@ -1,0 +1,392 @@
+" common setting {{{
+let mapleader = ';'
+set nocompatible
+set ruler
+
+set shiftwidth=4
+set softtabstop=4
+set tabstop=4
+set expandtab
+
+
+" set font on windows and linux
+if has("win32")
+	set guifont=DejaVu\ Sans\ Mono:h10
+elseif has("linux")
+	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ 30
+endif
+
+set ignorecase smartcase
+set incsearch
+set hlsearch
+set noerrorbells
+set showmatch
+set smartindent
+set number
+
+set encoding=utf-8
+set fileencodings=utf-8,gb2312
+set termencoding=utf-8
+set fileformat=unix
+set textwidth=79
+set splitbelow
+set splitright
+set autoindent
+" }}}
+
+" for vimrc edit or source {{{
+nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <Leader>sv :source $MYVIMRC<cr>
+" }}}
+
+" vim script code fold {{{
+augroup filetype_vim
+	autocmd!
+	autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+
+
+
+" set vim-plug plugins
+if has("win32")
+	if empty(glob('~/vimfiles/autoload/plug.vim'))
+	  silent !curl -fLo ~/vimfiles/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	endif
+	call plug#begin('~/vimfiles/plugged')
+else
+	if empty(glob('~/.vim/autoload/plug.vim'))
+	  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	endif
+	call plug#begin('~/.vim/plugged')
+endif
+
+" plugin manager
+Plug 'junegunn/vim-plug'
+
+" fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
+
+" highlight the keywords
+Plug 'lfv89/vim-interestingwords'
+
+" comment/uncomment tool
+Plug 'scrooloose/nerdcommenter'
+
+" colorschemes
+Plug 'flazz/vim-colorschemes'
+
+" the vim start screen
+Plug 'mhinz/vim-startify'
+
+" format code
+Plug 'Chiel92/vim-autoformat'
+
+" file template when create new file
+Plug 'aperezdc/vim-template'
+
+" quoting/parentheses made simple
+Plug 'tpope/vim-surround'
+
+" show diff with style
+Plug 'mhinz/vim-signify'
+
+" show tags in a window
+Plug 'majutsushi/tagbar'
+
+" file system explorer
+Plug 'scrooloose/nerdtree'
+
+" the ultimate snippet solution for Vim
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" the code search
+Plug 'mileszs/ack.vim'
+
+" insert or delete brackets, parens, quotes in pair
+Plug 'jiangmiao/auto-pairs'
+
+" a git wrapper
+Plug 'tpope/vim-fugitive'
+
+" a git commit viewer
+Plug 'junegunn/gv.vim'
+
+" find and replace plugin
+Plug 'brooth/far.vim'
+
+" asynchronous linting/fixing
+Plug 'w0rp/ale'
+
+" a simple function navigator
+Plug 'tacahiroy/ctrlp-funky'
+Plug 'ctrlpvim/ctrlp.vim'
+
+" flake8 for vim
+Plug 'nvie/vim-flake8'
+
+" the code complete
+Plug 'Valloric/YouCompleteMe'
+" ycm config generator
+Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+
+" indent levels
+Plug 'Yggdroot/indentLine'
+
+" status line
+" ----------------------------------for golang---------------------------------
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
+" ----------------------------------end golang---------------------------------
+
+"------------------------------------Python Plugins Start------------------------
+" code formatter:
+" google/yapf with vim-autoformat
+" syntax checking:
+" w0rp/ale
+" sort import:
+" autofix with w0rp/ale
+Plug 'fisadev/vim-isort'
+" auto completion:
+" jedi with Valloric/YouCompleteMe
+" quick run:
+" skywind3000/asyncrun.vim
+" indent levels:
+" Yggdroot/indentLine
+" Python indent
+Plug 'Vimjas/vim-python-pep8-indent'
+" enhance the default python syntax highlighting:
+" Python text objects:
+Plug 'jeetsukumaran/vim-pythonsense'
+"------------------------------------Python Plugins end--------------------------
+
+
+" incremental search
+Plug 'haya14busa/incsearch.vim'
+
+" multiple cursors
+Plug 'terryma/vim-multiple-cursors'
+
+" for dirdiff
+Plug 'will133/vim-dirdiff'
+
+" for markdown
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+" markdown live preview
+Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
+
+" for string replace in multiple files
+Plug 'brooth/far.vim'
+
+" for debug in vim
+"Plug 'vim-vdebug/vdebug'
+
+" for align
+Plug 'junegunn/vim-easy-align'
+
+" for ctags
+Plug 'ludovicchabant/vim-gutentags'
+
+" for plantuml
+Plug 'aklt/plantuml-syntax'
+
+
+call plug#end()
+" }}}
+
+" fzf setting {{{
+nnoremap <c-p> :FZF<CR>
+" }}}
+
+" tagbar setting {{{
+nnoremap <F8> :TagbarToggle<CR>
+" }}}
+
+" UltiSnips setting {{{
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<c-l>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+let g:ultisnips_python_style="google"
+" }}}
+
+" ack setting {{{
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
+" }}}
+
+" auto format code
+noremap <F3> :Autoformat<CR>
+" format when write to file
+" autocmd BufWrite * :Autoformat
+
+"NERDTree window
+nnoremap <F9> :NERDTreeToggle<CR>
+
+" isort setting
+let g:vim_isort_map = '<C-i>'
+let g:vim_isort_python_version = 'python3'
+
+" ctrlp_funky setting
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+
+" ctrlp setting
+" not use ctrlp for file find
+let g:ctrlp_map = ''
+
+" enable folding
+set foldmethod=indent
+set foldlevel=99
+
+nnoremap <space> za
+
+
+" ignore files in NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$']
+
+" for ycm
+nmap gd :YcmCompleter GoToDeclaration<CR>
+nmap gf :YcmCompleter GoToDefinition<CR>
+nmap ga :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
+let g:ycm_python_interpreter_path = '/usr/bin/python'
+let g:ycm_python_sys_path = ['']
+let g:ycm_extra_conf_vim_data = [
+	\	'g:ycm_python_interpreter_path',
+	\	'g:ycm_python_sys_path'
+	\]
+
+" use default ycm config
+let g:ycm_global_ycm_extra_conf = '~/.global_extra_conf.py'
+
+" do not confirm when loading config file
+let g:ycm_confirm_extra_conf = 0
+
+" for vim-signify config
+let g:signify_disable_by_default = 0
+
+set t_Co=256
+
+" default colorscheme
+colorscheme molokai
+" colorscheme solarized8_light_high
+
+" incsearch setting
+"map /  <Plug>(incsearch-forward)
+"map ?  <Plug>(incsearch-backword)
+map g/ <Plug>(incsearch-stay)
+nnoremap <Esc><Esc> :<C-u>nohlsearch<CR>
+
+" :h g:incsearch#auto_nohlsearch
+set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
+" for powerline
+set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
+set laststatus=2
+set t_Co=256
+let g:Powerline_symbols='fancy'
+
+" for ctags
+set tags=./.tags;,.tags
+
+let g:gutentags_project_root = ['.root', '.svn', '.git', '.hg', '.project']
+let g:gutentags_ctags_tagfile = '.tags'
+let s:vim_tags = expand('~/.cache/tags')
+let g:gutentags_cache_dir = s:vim_tags
+
+let g:gutentags_ctags_extra_args = ['--fields=+niazS', '--extra=+q']
+let g:gutentags_ctags_extra_args += ['--c++-kinds=+px']
+let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
+
+if !isdirectory(s:vim_tags)
+	silent! call mkdir(s:vim_tags, 'p')
+endif
+
+"--------------------------------ale setting start--------------------------------
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 1
+let g:ale_lint_on_filetype_changed = 0
+" manually check |:ALELint|
+"--------------------------------ale setting end----------------------------------
+
+"------------------------------python-mode setting start--------------------------
+let g:pymode_python = 'python'
+let g:pymode_indent = 1
+let g:pymode_folding = 1
+let g:python_motion = 1
+let g:pymode_doc = 0
+let g:pymode_virtualenv = 0
+let g:pymode_run = 0
+let g:pymode_breakpoint = 0
+let g:pymode_lint = 0
+let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
+let g:pymode_syntax = 1
+
+let g:pymode_syntax_all = 1
+"------------------------------python-mode setting end----------------------------
+
+"------------------------------instant-markdown setting start---------------------
+" filetype plugin on, seted by plug
+"Uncomment to override defaults:
+"let g:instant_markdown_slow = 1
+"let g:instant_markdown_autostart = 0
+"let g:instant_markdown_open_to_the_world = 1
+"let g:instant_markdown_allow_unsafe_content = 1
+"let g:instant_markdown_allow_external_content = 0
+"let g:instant_markdown_mathjax = 1
+"------------------------------instant-markdown setting end-----------------------
+
+" Start on gui mode
+if has("gui_running")
+	" Maximize GVim on start
+	au GUIEnter * simalt ~x
+	" remove the menubar
+	set guioptions -=m
+	" remove the toolbar
+	set guioptions -=T
+endif
+
+" for startify
+let g:startify_change_to_dir = 0
+let g:startify_change_to_vcs_root = 1
+
+" for template
+let g:email = "luominghao@live.com"
+let g:username = "luominghao"
+let g:license = "MIT"
+
+" for indentline
+let g:indentLine_enabled = 0
+
+" for vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+let g:DirDiffExcludes = "*.git,*.pyc"

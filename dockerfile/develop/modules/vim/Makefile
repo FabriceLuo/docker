@@ -1,23 +1,18 @@
 #
 # Makefile
-# luominghao, 2020-09-02 08:23
+# FabriceLuo, 2021-04-28 16:01
 #
 #
-GITHUB_URL=https://github.com/FabriceLuo/vim.git
-CLONE_DES_DIR=./vim
 
-.PHONY: clone make all
+OWNER     = vim
+REPO      = vim
+REPO_TYPE = latest_tag
 
-clone:
-	@echo "clone vim github."
-	git clone -b main $(GITHUB_URL) $(CLONE_DES_DIR)
+CONFIGURE_PARAMS=--enable-python3interp=yes --enable-cscope --enable-terminal --enable-multibyte --enable-gui=no
 
-make:
-	@echo "compile and install vim."
-	cd $(CLONE_DES_DIR) && make all
-
-all: clone make
-	@echo "build vim from github."
+finish:
+	install -D -m 0600 vimrc ~/.vimrc
+	cd $(COMPILE_DIR) && ./src/vim --version
 
 # vim:ft=make
 #

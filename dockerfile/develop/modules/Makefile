@@ -3,15 +3,18 @@
 # luominghao, 2020-09-02 08:23
 #
 
-subdirs = base vim tmux
+SUBDIRS = base vim tmux
+BUTTERFLY_URL ?= https://github.com/FabriceLuo/butterfly.git
 
-.PHONY: $(subdirs)
+.PHONY: butterfly $(SUBDIRS)
 
-all: $(subdirs)
+butterfly:
+	git clone $(BUTTERFLY_URL)
 
 $(subdirs):
 	@echo "build $@"
 	$(MAKE) -C $@ all
 
+all: butterfly $(subdirs)
 # vim:ft=make
 #
