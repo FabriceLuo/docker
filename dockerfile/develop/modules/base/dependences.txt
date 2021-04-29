@@ -5,3 +5,6 @@ python3
 python3-dev
 jq
 silversearcher-ag
+autoconf
+automake
+pkg-config
