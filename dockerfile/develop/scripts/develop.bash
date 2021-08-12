@@ -5,6 +5,7 @@
 #
 # Distributed under terms of the MIT license.
 #
+set -o pipefail
 
 IMAGE_NAME="develop:2.0"
 CONTAINER_NAME="debian10-develop"
@@ -41,12 +42,17 @@ function create()
 
 function status()
 {
+    if is_running;then
+        echo "develop container is running."
+    else
+        echo "develop container is not running."
+    fi
     return 0
 }
 
 function is_running()
 {
-    return 1
+    docker ps | grep -q "${CONTAINER_NAME}"
 }
 
 function attach()
@@ -67,14 +73,28 @@ function enter()
     attach
 }
 
+
+function usage()
+{
+    cat <<EOF
+$0 usage: $0 status|start|stop|enter|help
+EOF
+}
+
 case $1 in
     status )
+        status
         ;;
     start )
+        start
         ;;
     stop )
+        stop
         ;;
-    * )
+    enter )
         enter
+        ;;
+    *)
+        usage
         ;;
 esac

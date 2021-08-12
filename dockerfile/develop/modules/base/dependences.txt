@@ -8,3 +8,16 @@ silversearcher-ag
 autoconf
 automake
 pkg-config
+bc
+cloc
+ethtool
+netcat
+netcat-openbsd
+sshpass
+python3-pip
+strace
+ltrace
+tree
+unzip
+uuid
+man
