@@ -15,6 +15,7 @@ netcat-openbsd
 sshpass
 python3-pip
 strace
+ltrace
 tree
 unzip
 uuid
