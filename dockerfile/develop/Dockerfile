@@ -18,4 +18,4 @@ RUN apt-get -y install make
 # 构建组件依赖
 RUN mkdir ${dependence_build}
 COPY --chown=root:root modules ${build_modules}
-RUN env SHELL=${default_shell} make -C ${build_modules}
+RUN env SHELL=${default_shell} make -C ${build_modules} all
