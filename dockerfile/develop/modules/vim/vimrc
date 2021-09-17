@@ -201,7 +201,7 @@ call plug#end()
 " }}}
 
 " fzf setting {{{
-nnoremap <c-p> :FZF<CR>
+nnoremap <c-p> :FZF!<CR>
 " }}}
 
 " tagbar setting {{{
@@ -303,10 +303,10 @@ map g* <Plug>(incsearch-nohl-g*)
 map g# <Plug>(incsearch-nohl-g#)
 
 " for powerline
-set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
-set laststatus=2
-set t_Co=256
-let g:Powerline_symbols='fancy'
+"set rtp+=/usr/local/lib/python2.7/dist-packages/powerline/bindings/vim
+"set laststatus=2
+"set t_Co=256
+"let g:Powerline_symbols='fancy'
 
 " for ctags
 set tags=./.tags;,.tags
