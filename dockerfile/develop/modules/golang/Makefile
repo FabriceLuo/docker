@@ -4,6 +4,7 @@
 #
 
 REPO = go
+BINARY_RELATIVE = go/bin
 DOWNLOAD_URL = https://golang.org/dl/go1.17.linux-amd64.tar.gz
 
 
