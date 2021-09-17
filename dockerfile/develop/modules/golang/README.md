@@ -1,1 +1,1 @@
-https://golang.org/dl/go1.17.linux-amd64.tar.gz
+Download and install golang compile.
