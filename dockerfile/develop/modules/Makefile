@@ -3,7 +3,7 @@
 # luominghao, 2020-09-02 08:23
 #
 
-SUBDIRS = base tmux vim ctags golang cmake
+SUBDIRS = base tmux vim ctags golang cmake bash git
 BUTTERFLY_URL ?= https://github.com/FabriceLuo/butterfly.git
 export BUTTERFLY_DIR = $(realpath ./butterfly)
 export DEVELOP_USER = fabrice
