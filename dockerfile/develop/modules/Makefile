@@ -6,6 +6,7 @@
 SUBDIRS = base tmux vim ctags golang cmake
 BUTTERFLY_URL ?= https://github.com/FabriceLuo/butterfly.git
 export BUTTERFLY_DIR = $(realpath ./butterfly)
+export DEVELOP_USER = fabrice
 
 .PHONY: butterfly $(SUBDIRS)
 

@@ -18,7 +18,7 @@ ENTRYPOINT ["/usr/bin/env", "LANG=en_US.UTF-8"]
 CMD ["/bin/bash", "-i"]
 
 # 使用优化后的apt源配置，加速安装速度
-COPY --chown=root:root ["sources.list", "/etc/apt/sources.list"]
+# COPY --chown=root:root ["sources.list", "/etc/apt/sources.list"]
 RUN apt-get update
 
 RUN ${pkg_install} apt-utils
