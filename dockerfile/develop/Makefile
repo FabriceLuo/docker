@@ -2,7 +2,7 @@
 # Makefile
 # luominghao, 2020-07-19 04:30
 #
-image_version=2.0
+image_version=3.0
 image_name=develop
 
 # 构建时代理相关的环境变量
@@ -12,6 +12,7 @@ git_https_proxy=$(socks5_proxy)
 http_proxy=$(socks5_proxy)
 https_proxy=$(socks5_proxy)
 all_proxy=$(socks5_proxy)
+
 use_apt_mirror=/home/build/src/environment/sources.list
 
 .PHONY: all_proxy no_proxy all

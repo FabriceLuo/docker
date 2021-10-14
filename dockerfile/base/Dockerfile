@@ -28,7 +28,10 @@ RUN ${pkg_install} dialog locales
 RUN localedef -i en_US -f UTF-8 en_US.UTF-8
 
 RUN useradd -m -U -s /bin/bash fabrice
+RUN echo -e "081126\n081126" | password root
+RUN echo -e "081126\n081126" | password fabrice
 
 # 安装vim
 RUN ${pkg_install} build-essential
 RUN ${pkg_install} git
+RUN ${pkg_install} procps
