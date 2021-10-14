@@ -1,3 +1,4 @@
+procps
 curl
 python3
 python3-dev
