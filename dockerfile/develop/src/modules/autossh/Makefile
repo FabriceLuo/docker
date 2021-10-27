@@ -4,12 +4,11 @@
 #
 #
 
-OWNER     = fabriceluo
 REPO      = autossh
-REPO_TYPE = latest_tag
+DOWNLOAD_URL = https://api.github.com/repos/FabriceLuo/autossh/tarball/refs/tags/v0.1.0
 
 
-include ../butterfly/makefile/make-install.mk
+include ../butterfly/makefile/download-install.mk
 
 # vim:ft=make
 #
