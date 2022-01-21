@@ -9,10 +9,10 @@ REPO_TYPE = latest_release
 
 DEVELOP_USER ?= fabrice
 
-include ../butterfly/makefile/make-install.mk
+include $(BUTTERFLY_DIR)/makefile/make-install.mk
 
 finish:
-	su -c 'install -D -m 0600 ../butterfly/tmux/tmux.conf ~/.tmux.conf' $(DEVELOP_USER)
+	su -c 'install -D -m 0600 tmux.conf ~/.tmux.conf' $(DEVELOP_USER)
 
 # vim:ft=make
 #

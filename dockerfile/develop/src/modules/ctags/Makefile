@@ -8,7 +8,7 @@ OWNER     = universal-ctags
 REPO      = ctags
 REPO_TYPE = latest_tag
 
-include ../butterfly/makefile/make-install.mk
+include $(BUTTERFLY_DIR)/makefile/make-install.mk
 
 configure:
 	cd $(COMPILE_DIR) && /bin/sh ./autogen.sh && ./configure

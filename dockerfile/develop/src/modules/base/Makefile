@@ -6,7 +6,7 @@
 
 all:
 	@echo "build essentials."
-	bash ../butterfly/shell/utils/apt-install-file.bash ./dependences.txt
+	bash $(BUTTERFLY_DIR)/shell/utils/apt-install-file.bash ./dependences.txt
 
 # vim:ft=make
 #

@@ -8,7 +8,7 @@ REPO      = autossh
 DOWNLOAD_URL = https://api.github.com/repos/FabriceLuo/autossh/tarball/refs/tags/v0.1.0
 
 
-include ../butterfly/makefile/download-install.mk
+include $(BUTTERFLY_DIR)/makefile/download-install.mk
 
 # vim:ft=make
 #

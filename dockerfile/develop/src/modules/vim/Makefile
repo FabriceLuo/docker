@@ -12,7 +12,7 @@ DEVELOP_USER ?= fabrice
 
 CONFIGURE_PARAMS=--enable-python3interp=yes --enable-cscope --enable-terminal --enable-multibyte --enable-gui=no
 
-include ../butterfly/makefile/make-install.mk
+include $(BUTTERFLY_DIR)/makefile/make-install.mk
 
 finish:
 	su -c 'install -D -m 0600 vimrc ~/.vimrc' $(DEVELOP_USER)

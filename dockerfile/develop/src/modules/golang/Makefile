@@ -8,7 +8,7 @@ BINARY_RELATIVE = bin
 DOWNLOAD_URL = https://golang.org/dl/go1.17.3.linux-amd64.tar.gz
 
 
-include ../butterfly/makefile/download-install.mk
+include $(BUTTERFLY_DIR)/makefile/download-install.mk
 
 
 # vim:ft=make
