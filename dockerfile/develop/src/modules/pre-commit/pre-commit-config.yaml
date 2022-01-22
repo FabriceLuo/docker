@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/TekWizely/pre-commit-golang.git
+    rev: v1.0.0-beta.5
+    hooks:
+      - go-build-mod
+      #- go-critic
+      - go-fmt
+      - go-fumpt
+      - go-imports
+      - go-mod-tidy
+      - go-test-pkg
+      #- go-structslop-pkg
+      - golangci-lint
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks.git
+    rev: v4.1.0
+    hooks:
+      - check-added-large-files
+      - check-executables-have-shebangs
+      - check-json
+      - pretty-format-json
+      - check-merge-conflict
+      - check-symlinks
+      #- check-toml
+      - check-yaml
+      #- detect-private-key
+      - end-of-file-fixer
+      - fix-byte-order-marker
+      - fix-encoding-pragma
+      - mixed-line-ending
+      - trailing-whitespace
