@@ -15,5 +15,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
+    - name: Build the image
       run: cd ./dockerfile/base && docker build . --file Dockerfile --tag develop:$(date +%s)
+    - name: Push the image
+      run: docker push ghcr.io/FabriceLuo/base:latest
