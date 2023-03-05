@@ -5,6 +5,7 @@ on:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
 
@@ -14,5 +15,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Build the Docker image
-      run: cd ./dockerfile/base && docker build . --file Dockerfile --tag develop:$(date +%s)
+    - name: Build the image
+      run: cd ./dockerfile/base && docker build . --file Dockerfile --tag base:1.0
+    - name: Tag the image
+      run: docker tag base:1.0 ghcr.io/fabriceluo/base:1.0
+    - name: Login Github packages
+      run: docker login --username fabrice --password ${{ secrets.GITHUB_TOKEN }} ghcr.io
+    - name: Push the image
+      run: docker push ghcr.io/fabriceluo/base:1.0
