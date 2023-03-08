@@ -6,7 +6,7 @@
 # Distributed under terms of the MIT license.
 #
 
-old_pwd=$(PWD)
+old_pwd=$(pwd)
 ycm_dir=~/.vim/plugged/YouCompleteMe
 
 cd "${ycm_dir}"
