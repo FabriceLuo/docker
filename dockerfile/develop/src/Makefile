@@ -3,7 +3,7 @@
 # fabriceluo, 2021-10-12 23:46
 #
 
-SUBDIRS = environment modules
+SUBDIRS = modules
 BUTTERFLY_URL ?= https://github.com/FabriceLuo/butterfly.git
 
 .PHONY: butterfly environment modules all
@@ -15,8 +15,8 @@ butterfly:
 
 $(SUBDIRS):
 	@echo "build $@"
-	$(MAKE) -C $@ all
+	$(MAKE) -C $@ $(MAKECMDGOALS)
 
-all: butterfly $(SUBDIRS)
+all debug: butterfly $(SUBDIRS)
 # vim:ft=make
 #
