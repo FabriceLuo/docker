@@ -8,7 +8,7 @@
 set -o pipefail
 
 NEXTCLOUD_INS_NAME="nextcloud_instance"
-VDISK_DIR="/mnt/data/qcow2/nextcloud"
+VDISK_DIR="/mnt/md127p1/qcow2/nextcloud"
 
 declare -A QCOW2_SIZE=( \
     ["nextcloud_data.qcow2"]="2048G" \
@@ -101,7 +101,7 @@ function disconnect_devs() {
             return 1
         fi
 
-        if ! sudo qemu-nbd -d "${nbd_path}";then
+        if !  qemu-nbd -d "${nbd_path}";then
             echo "disconnect nbd path(${nbd_path}) failed"
             return 2
         fi
@@ -138,13 +138,13 @@ function connect_devs() {
             return 1
         fi
 
-        if ! sudo qemu-nbd -c "${nbd_path}" "${qcow2_path}";then
+        if !  qemu-nbd -c "${nbd_path}" "${qcow2_path}";then
             echo "disconnect nbd path(${nbd_path}) failed"
             return 2
         fi
     done
 
-    sudo partprobe
+     partprobe
 
     return 0
 }
@@ -163,13 +163,13 @@ function is_running() {
 }
 
 function start_nextcloud() {
-    docker run -d -it -p 8090:80 -p 8091:443 \
-        -v nextcloud:/var/www/html \
-        -v nextcloud_apps:/var/www/html/custom_apps \
-        -v nextcloud-test-config:/var/www/html/config \
-        -v nextcloud-test-data:/var/www/html/data \
-        -v nextcloud_theme:/var/www/html/themes \
-        --name "${NEXTCLOUD_INS_NAME}" nextcloud-image:1.0
+    docker run -d --rm -p 8090:80 -p 8091:443 \
+	-v nextcloud:/var/www/html \
+	-v nextcloud-apps:/var/www/html/custom_apps \
+	-v nextcloud-config:/var/www/html/config \
+	-v nextcloud-data:/var/www/html/data \
+	-v nextcloud-theme:/var/www/html/themes \
+	--name "${NEXTCLOUD_INS_NAME}" nextcloud-image:1.1
 }
 
 function stop_nextcloud() {
@@ -229,6 +229,8 @@ case $1 in
     start)
         start
         ;;
+    status)
+	;;
     *)
         echo "command not found, commond:$1"
         ;;
