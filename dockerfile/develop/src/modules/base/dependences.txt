@@ -22,3 +22,4 @@ tree
 unzip
 uuid
 man
+zsh

@@ -7,7 +7,7 @@ function start() {
 	umount /mnt/postgres
 	qemu-nbd -d /dev/nbd11
 
-	qemu-nbd -c /dev/nbd11 /mnt/md127p1/qcow2/postgres/server-db.qcow2
+	qemu-nbd -c /dev/nbd11 /mnt/backup/data/20230316/postgres/server-db.qcow2
 	if [[ $? -ne 0 ]];then
 		echo "connect postgres qcow2 file to nbd failed"
 		return 1

@@ -8,7 +8,7 @@
 set -o pipefail
 
 NEXTCLOUD_INS_NAME="nextcloud_instance"
-VDISK_DIR="/mnt/md127p1/qcow2/nextcloud"
+VDISK_DIR="/mnt/backup/data/20230316/nextcloud"
 
 declare -A QCOW2_SIZE=( \
     ["nextcloud_data.qcow2"]="2048G" \
