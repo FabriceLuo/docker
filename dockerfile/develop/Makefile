@@ -2,11 +2,11 @@
 # Makefile
 # luominghao, 2020-07-19 04:30
 #
-image_version=3.3
+image_version=3.5
 image_name=develop
 
 # 构建时代理相关的环境变量
-socks5_proxy=socks5://192.168.2.1:8094
+socks5_proxy=socks5://192.168.0.254:8094
 # for git proxy
 git_http_proxy=$(socks5_proxy)
 git_https_proxy=$(socks5_proxy)
