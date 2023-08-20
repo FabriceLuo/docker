@@ -4,6 +4,7 @@
 #
 
 REPO 	= fd
+BINARY_RELATIVE = 
 DOWNLOAD_URL = https://github.com/sharkdp/fd/releases/download/v8.7.0/fd-v8.7.0-x86_64-unknown-linux-musl.tar.gz
 
 

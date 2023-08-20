@@ -1,15 +1,12 @@
 #
 # Makefile
-# fabriceluo, 2021-09-17 22:15
+# FabriceLuo, 2023-08-20 23:01
+#
 #
 
-REPO = go
-BINARY_RELATIVE = bin
-DOWNLOAD_URL = https://golang.google.cn/dl/go1.21.0.linux-amd64.tar.gz
+include $(BUTTERFLY_DIR)/makefile/make-subdirs.mk
 
-
-include $(BUTTERFLY_DIR)/makefile/download-install.mk
-
+SUBDIRS = golang install
 
 # vim:ft=make
 #

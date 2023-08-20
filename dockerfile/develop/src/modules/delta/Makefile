@@ -4,6 +4,7 @@
 #
 
 REPO 	= delta
+BINARY_RELATIVE = 
 DOWNLOAD_URL = https://github.com/dandavison/delta/releases/download/0.16.5/delta-0.16.5-x86_64-unknown-linux-musl.tar.gz
 
 include $(BUTTERFLY_DIR)/makefile/download-install.mk
