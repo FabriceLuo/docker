@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND noninteractive
 LABEL "name"="base-image"
 LABEL "distribution"="debian11"
 LABEL "description"="common base image for develop"
-LABEL "version"="2.1"
+LABEL "version"="2.2"
 
 USER root:root
 SHELL ["/bin/bash", "-c"]
@@ -24,7 +24,8 @@ RUN apt-get update
 RUN ${pkg_install} apt-utils
 
 # 配置locales为en_US.UTF-8
-RUN ${pkg_install} dialog locales build-essential git procps make
+RUN ${pkg_install} dialog locales build-essential git procps make curl python3 python3-pip python3-dev jq yq autoconf automake pkg-config bc cloc ethtool netcat-openbsd sshpass strace ltrace tree unzip uuid man zsh iputils-ping tcpdump iproute2 yadm
+
 RUN localedef -i en_US -f UTF-8 en_US.UTF-8
 
 RUN useradd -m -U -s /bin/bash fabrice

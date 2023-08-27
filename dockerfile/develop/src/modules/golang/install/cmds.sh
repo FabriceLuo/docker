@@ -1,5 +1,5 @@
-#!/usr/bin/bash
-# for nvim ale lint
+#!/bin/bash
+# for ale lint
 go install golang.org/x/tools/gopls@latest
 go install mvdan.cc/gofumpt@latest
 go install golang.org/x/tools/cmd/goimports@latest

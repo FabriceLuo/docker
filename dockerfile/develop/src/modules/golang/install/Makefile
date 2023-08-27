@@ -1,4 +1,4 @@
 DEVELOP_USER ?= fabrice
 
 all:
-	@su -c './cmds.sh' $(DEVELOP_USER)
+	@su -c 'bash ./cmds.sh' $(DEVELOP_USER)

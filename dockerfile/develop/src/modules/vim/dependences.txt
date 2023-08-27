@@ -1,6 +1,2 @@
 # dependences for vim.
 libncurses-dev
-jq
-curl
-python3
-python3-dev
