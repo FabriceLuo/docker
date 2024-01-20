@@ -8,7 +8,7 @@ env APACHE_MODS_ENABLE_DIR="/etc/apache2/mods-enabled"
 LABEL "name"="nextcloud-image"
 LABEL "distribution"="nextcloud image with https"
 LABEL "description"="nextcloud image with https"
-LABEL "version"="1.0"
+LABEL "version"="1.2"
 
 RUN mkdir ${CLOUD_CERT_DIR}
 
