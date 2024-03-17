@@ -16,10 +16,10 @@ prepare:
 	touch $(PATHRC)
 	git clone $(BUTTERFLY_URL)
 
-$(SUBDIRS):
+$(SUBDIRS): prepare
 	@echo "build $@"
 	$(MAKE) -C $@ $(MAKECMDGOALS)
 
-all debug: prepare $(SUBDIRS)
+all debug: $(SUBDIRS)
 # vim:ft=make
 #

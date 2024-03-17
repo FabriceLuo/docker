@@ -2,7 +2,7 @@
 # Makefile
 # luominghao, 2020-07-19 04:30
 #
-image_version=2.1
+image_version=2.2
 image_name=base
 
 build:
