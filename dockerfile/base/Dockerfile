@@ -31,3 +31,11 @@ RUN localedef -i en_US -f UTF-8 en_US.UTF-8
 RUN useradd -m -U -s /bin/bash fabrice
 RUN echo -e "081126\n081126" | passwd root
 RUN echo -e "081126\n081126" | passwd fabrice
+<<<<<<< HEAD
+=======
+
+# 安装vim
+RUN ${pkg_install} build-essential
+RUN ${pkg_install} git
+RUN ${pkg_install} procps
+>>>>>>> cd9617c ([UPDATE]Update deiban10 to debian11)

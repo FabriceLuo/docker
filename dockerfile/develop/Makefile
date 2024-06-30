@@ -6,8 +6,12 @@ image_version=3.6
 image_name=develop-with-vim
 
 # 构建时代理相关的环境变量
+<<<<<<< HEAD
 socks5_proxy=socks5://192.168.110.16:8094
 # for git proxy
+=======
+socks5_proxy=socks5://172.17.0.1:8095
+>>>>>>> cd9617c ([UPDATE]Update deiban10 to debian11)
 git_http_proxy=$(socks5_proxy)
 git_https_proxy=$(socks5_proxy)
 # for shell proxy
