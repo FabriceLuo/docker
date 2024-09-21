@@ -1,9 +1,14 @@
 {
-    "group": "fabrice",
-    "registry-mirrors": [
-        "https://docker.mirrors.ustc.edu.cn/"
-    ],
-    "hosts": [
-        "unix:///var/run/docker.sock"
-    ]
+  "group": "fabrice",
+  "registry-mirrors": [
+    "https://docker.mirrors.ustc.edu.cn/"
+  ],
+  "data-root": "/home/fabrice/Data/docker",
+  "proxies": {
+    "http-proxy": "http://127.0.0.1:8095/",
+    "https-proxy": "http://127.0.0.1:8095/"
+  },
+  "hosts": [
+    "unix:///var/run/docker.sock"
+  ]
 }
