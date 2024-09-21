@@ -8,6 +8,9 @@
     "http-proxy": "http://127.0.0.1:8095/",
     "https-proxy": "http://127.0.0.1:8095/"
   },
+  "features": {
+    "buildkit": true
+  },
   "hosts": [
     "unix:///var/run/docker.sock"
   ]
