@@ -2,11 +2,15 @@
 # Makefile
 # luominghao, 2020-07-19 04:30
 #
-image_version=2.1
-image_name=base
+IMAGE_NAME	=$(D_BASE_NAME)
+IMAGE_VERSION	=$(D_BASE_VERSION)
 
-build:
-	docker build -t $(image_name):$(image_version) ./
+.PHONY: all
+
+all:
+	rm -rf ./ssh
+	cp -rf ~/.ssh ./ssh
+	docker build --no-cache -t $(IMAGE_NAME):$(IMAGE_VERSION) ./
 
 # vim:ft=make
 #
