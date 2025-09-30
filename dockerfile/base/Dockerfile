@@ -64,6 +64,14 @@ RUN ${pkg_install} --no-install-recommends \
     npm \
     rsync \
     sshpass \
+    timedatectl \
+    clang-tidy \
+    cppcheck \
+    manpages-dev \
+    clangd \
+    bear \
+    clang-format \
+    stylua \
     ssh
 
 # 配置locales为en_US.UTF-8
